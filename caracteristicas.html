@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Características | Tomarota</title>
+<link rel="icon" href="icono.png">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#f1f4f9,#ffffff);
+}
+
+/* -------- MENU -------- */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.menu a{
+    position:relative;
+    text-decoration:none;
+    color:#1f3553;
+    font-size:14px;
+    font-weight:600;
+    padding:6px 2px;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:2px;
+    background:#f57c2b;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+.menu a:hover{
+    color:#f57c2b;
+}
+
+.menu a.activo{
+    color:#f57c2b;
+}
+
+.menu a.activo::after{
+    width:100%;
+}
+
+.btn{
+    background:linear-gradient(135deg,#f57c2b,#ff9b54);
+    color:white !important;
+    padding:9px 16px;
+    border-radius:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 16px rgba(0,0,0,0.25);
+}
+
+/* ---------- LOGO ---------- */
+
+.logo{
+    position:relative;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:0.6px;
+    color:#1f3553;
+    cursor:pointer;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    animation:logoEntrada 0.9s ease forwards;
+}
+
+.logo .o{
+    color:#f57c2b;
+}
+
+.logo::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:3px;
+    background:linear-gradient(90deg,#f57c2b,#ff9b54);
+    border-radius:4px;
+    transition:width 0.4s ease;
+}
+
+.logo::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:-4px;
+    width:22px;
+    height:2px;
+    background:#f57c2b;
+    opacity:0.6;
+}
+
+.logo:hover{
+    transform:translateY(-1px);
+}
+
+.logo:hover::after{
+    width:100%;
+}
+
+@keyframes logoEntrada{
+    from{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* -------- CONTENEDOR PRINCIPAL (VENTANA) -------- */
+
+.ventana{
+    min-height:calc(100vh - 70px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 30px;
+}
+
+/* -------- PANEL -------- */
+
+.panel{
+    width:100%;
+    max-width:1050px;
+    background:white;
+    border-radius:28px;
+    padding:55px 55px 60px;
+    box-shadow:0 30px 80px rgba(0,0,0,0.18);
+    animation:entrada 0.7s ease;
+}
+
+@keyframes entrada{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(0.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* -------- CABECERA -------- */
+
+.panel-header{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.panel-header span{
+    display:inline-block;
+    background:rgba(245,124,43,0.12);
+    color:#f57c2b;
+    padding:6px 16px;
+    border-radius:40px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.panel-header h1{
+    font-size:38px;
+    color:#1f3553;
+    margin-bottom:12px;
+}
+
+.panel-header p{
+    color:#666;
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
+}
+
+/* -------- GRID -------- */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:26px;
+}
+
+/* -------- TARJETAS -------- */
+
+.card{
+    background:linear-gradient(180deg,#ffffff,#f6f9ff);
+    border-radius:20px;
+    padding:26px 24px 30px;
+    border:1px solid #eee;
+    box-shadow:0 12px 28px rgba(0,0,0,0.05);
+    position:relative;
+    overflow:hidden;
+    transition:0.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(245,124,43,0.18);
+}
+
+.card::after{
+    content:"";
+    position:absolute;
+    inset:auto -40% -40% auto;
+    width:120px;
+    height:120px;
+    background:rgba(245,124,43,0.08);
+    border-radius:50%;
+}
+
+.card span{
+    display:inline-block;
+    background:rgba(245,124,43,0.15);
+    color:#f57c2b;
+    padding:5px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.card h3{
+    color:#1f3553;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.card p{
+    font-size:14px;
+    color:#555;
+    line-height:1.6;
+}
+
+/* -------- SECCIÓN DESTACADA -------- */
+
+.destacado{
+    margin-top:45px;
+    padding:35px 40px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#1f3553,#304f7d);
+    color:white;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+@media(max-width:900px){
+    .destacado{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+}
+
+.destacado h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.destacado p{
+    line-height:1.6;
+    opacity:0.9;
+}
+
+.lista{
+    display:grid;
+    gap:12px;
+    font-size:14px;
+}
+
+.lista div{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+}
+
+/* -------- PIE -------- */
+
+footer{
+    background:#1f3553;
+    color:white;
+    padding:25px 40px;
+    text-align:center;
+    font-size:14px;
+}
+
+footer{
+    position:relative;   /* necesario para centrar sin romper el layout */
+}
+
+.footer-copy{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    font-size:14px;
+    opacity:0.9;
+    white-space:nowrap;
+}
+
+/* ===========================
+   RESPONSIVE – TABLET Y MÓVIL
+   =========================== */
+
+@media (max-width: 992px){
+
+    header{
+        padding:15px 20px;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        width:100%;
+    }
+
+    .hero{
+        height:auto;
+        padding:60px 0;
+        background-position:center;
+        background-size:cover;
+    }
+
+    .hero-contenido{
+        padding:0 25px;
+    }
+
+    .hero-texto h1{
+        font-size:30px;
+    }
+
+    .hero-texto p{
+        font-size:15px;
+    }
+
+    .lista-beneficios{
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+
+    .uso{
+        padding:70px 25px;
+    }
+
+    .uso img{
+        max-width:100%;
+        height:260px;
+    }
+
+}
+
+
+/* ===========================
+   MÓVILES
+   =========================== */
+
+@media (max-width: 600px){
+
+    .logo{
+        font-size:24px;
+    }
+
+    .menu a{
+        font-size:13px;
+    }
+
+    .btn{
+        padding:7px 14px;
+        font-size:13px;
+    }
+
+    .hero-texto{
+        max-width:100%;
+    }
+
+    .hero-texto h1{
+        font-size:26px;
+    }
+
+    .beneficios h2{
+        font-size:28px;
+    }
+
+    .beneficio{
+        padding:22px 18px;
+    }
+
+    .uso{
+        gap:30px;
+    }
+
+    .uso h2{
+        font-size:26px;
+    }
+
+    .uso p{
+        font-size:15px;
+    }
+
+    footer{
+        padding:35px 20px;
+        text-align:center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <strong class="logo">
+        T<span class="o">o</span>mar<span class="o">o</span>ta
+    </strong>
+
+    <div class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="caracteristicas.html" class="activo">Características</a>
+    <a href="preventa.html">Preventa</a>
+    <a href="contacto.html">Contacto</a>
+    <a class="btn" href="comprar.html">¡Comprar ahora!</a>
+</div>
+</header>
+
+<section class="ventana">
+
+    <div class="panel">
+
+        <div class="panel-header">  
+            <h1>Características de Tomarota</h1>
+            <p>
+                Conoce cómo nuestra empresa y nuestro toma todo inteligente de
+                tres compartimientos fueron diseñados para acompañar el ritmo
+                de la vida moderna.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <span>🏢 Empresa</span>
+                <h3>¿Quiénes somos?</h3>
+                <p>
+                    Tomarota es una empresa dedicada al desarrollo de productos
+                    funcionales para el uso diario. Nuestro enfoque combina
+                    diseño moderno, ergonomía y tecnología para mejorar la
+                    experiencia de hidratación de estudiantes y profesionales.
+                </p>
+            </div>
+
+            <div class="card">
+                <span>🤖 Inteligencia artificial</span>
+                <h3>Diseño asistido por IA</h3>
+                <p>
+                    El desarrollo del producto se apoya en herramientas de
+                    inteligencia artificial para analizar hábitos de consumo,
+                    necesidades reales de usuarios y patrones de uso en
+                    jornadas prolongadas.
+                </p>
+            </div>
+
+            <div class="card">
+                <span>🧃 Producto</span>
+                <h3>Toma todo de tres compartimientos</h3>
+                <p>
+                    El toma todo Tomarota integra tres compartimientos
+                    independientes que permiten transportar agua, café y jugo
+                    en un solo envase sin riesgo de mezcla.
+                </p>
+            </div>
+
+            <div class="card">
+                <span>🔥 Rendimiento</span>
+                <h3>Control térmico independiente</h3>
+                <p>
+                    Cada compartimiento conserva su temperatura por separado,
+                    manteniendo bebidas frías o calientes durante más tiempo y
+                    mejorando la experiencia de consumo.
+                </p>
+            </div>
+
+            <div class="card">
+                <span>🛠️ Seguridad</span>
+                <h3>Materiales de alta calidad</h3>
+                <p>
+                    Fabricado con materiales resistentes y libres de BPA,
+                    diseñado para soportar el uso continuo en oficinas,
+                    universidades y actividades cotidianas.
+                </p>
+            </div>
+
+            <div class="card">
+                <span>✨ Experiencia</span>
+                <h3>Organización inteligente</h3>
+                <p>
+                    Su diseño interno permite llevar varias bebidas en un solo
+                    producto, reduciendo la necesidad de transportar varios
+                    envases durante el día.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="destacado">
+
+            <div>
+                <h2>Un solo envase. Tres bebidas. Una mejor rutina.</h2>
+                <p>
+                    El toma todo Tomarota fue concebido para acompañar jornadas
+                    de estudio y trabajo de 8 a 10 horas, ofreciendo comodidad,
+                    orden y eficiencia en cada uso.
+                </p>
+            </div>
+
+            <div class="lista">
+                <div>✔ Agua, café y jugo en un solo producto</div>
+                <div>✔ Compartimientos totalmente aislados</div>
+                <div>✔ Diseño ergonómico y portátil</div>
+                <div>✔ Ideal para oficina, estudios y uso diario</div>
+                <div>✔ Desarrollo orientado por análisis con IA</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 – Tomarota | Innovación para tu día a día
+</footer>
+
+</body>
+</html>
