@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Tomarota</title>
+    <link rel="icon" href="icono.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f5f7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* -------- MENU (MISMO DEL index.html) -------- */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.menu a{
+    position:relative;
+    text-decoration:none;
+    color:#1f3553;
+    font-size:14px;
+    font-weight:600;
+    padding:6px 2px;
+}
+
+/* subrayado animado */
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:2px;
+    background:#f57c2b;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+.menu a:hover{
+    color:#f57c2b;
+}
+
+.menu a.activo{
+    color:#f57c2b;
+}
+
+.menu a.activo::after{
+    width:100%;
+}
+
+/* botón comprar */
+.btn{
+    background:linear-gradient(135deg,#f57c2b,#ff9b54);
+    color:white !important;
+    padding:9px 16px;
+    border-radius:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 16px rgba(0,0,0,0.25);
+}
+
+/* ---------- LOGO DEL MENU PRINCIPAL (MEJORADO) ---------- */
+
+.logo{
+    position:relative;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:0.6px;
+    color:#1f3553;
+    cursor:pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+
+    animation:logoEntrada 0.9s ease forwards;
+}
+
+/* letras "o" en color naranja */
+.logo .o{
+    color:#f57c2b;
+}
+
+/* subrayado elegante animado */
+.logo::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:3px;
+    background:linear-gradient(90deg,#f57c2b,#ff9b54);
+    border-radius:4px;
+    transition:width 0.4s ease;
+}
+
+/* pequeño detalle superior (muy sutil) */
+.logo::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:-4px;
+    width:22px;
+    height:2px;
+    background:#f57c2b;
+    opacity:0.6;
+}
+
+/* animación al pasar el mouse */
+.logo:hover{
+    transform:translateY(-1px);
+}
+
+.logo:hover::after{
+    width:100%;
+}
+
+/* animación de entrada */
+@keyframes logoEntrada{
+    from{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+        /* --- SECCIÓN CONTACTO --- */
+        .contacto-hero {
+            flex: 1;
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contacto-hero h1 {
+            font-size: 42px;
+            color: #1f3553;
+            margin-bottom: 15px;
+        }
+
+        .contacto-hero p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        /* Cuadrícula de enlaces */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .contacto-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #1f3553;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+        }
+
+        .contacto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(245, 124, 43, 0.2);
+            border-color: #f57c2b;
+        }
+
+        .contacto-card img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .contacto-card span {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* --- FOOTER ANCHO Y CENTRADO --- */
+        footer {
+            background: #1f3553;
+            color: white;
+            padding: 20px 20px; /* Muy ancho verticalmente */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .footer-info {
+            max-width: 500px;
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+            max-width: 400px;
+            justify-content: center;
+            font-size: 13px;
+            color: #f57c2b;
+        }
+
+        .footer-bottom img {
+            width: 20px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">
+        T<span class="o">o</span>mar<span class="o">o</span>ta
+    </a>
+    <div class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="caracteristicas.html">Características</a>
+    <a href="preventa.html">Preventa</a>
+    <a href="contacto.html" class="activo">Contacto</a>
+    <a class="btn" href="comprar.html">¡Comprar ahora!</a>
+</div>
+</header>
+
+<main class="contacto-hero">
+    <span>Estamos para ayudarte</span>
+    <h1>¿Hablamos?</h1>
+    <p>Elige tu canal favorito y nuestro equipo te responderá en tiempo récord.</p>
+
+    <div class="contacto-grid">
+        <a href="https://wa.me/51918813394" target="_blank" class="contacto-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+            <span>WhatsApp</span>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=61586911580724" target="_blank" class="contacto-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook">
+            <span>Facebook</span>
+        </a>
+
+        <a href="https://www.instagram.com/tomarota.oficial/" target="_blank" class="contacto-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+            <span>Instagram</span>
+        </a>
+
+        <a href="rubenalfredopp@gmail.com" class="contacto-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">
+            <span>Email</span>
+        </a>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-logo">t<span style="color:#f57c2b;">o</span>mar<span style="color:#f57c2b;">o</span>ta</div>
+    
+    <p class="footer-info">
+        Llevamos tu hidratación al siguiente nivel con tecnología y diseño.<br>
+        Únete a la revolución de las bebidas inteligentes.
+    </p>
+
+    <div class="footer-bottom">
+        <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Verificado">
+        <span>Garantía de satisfacción oficial Tomarota</span>
+    </div>
+    <!-- copy centrado -->
+    <span class="footer-copy">
+        © 2026 – Tomarota | Innovación para tu día a día
+    </span>
+</footer>
+
+</body>
+</html>
