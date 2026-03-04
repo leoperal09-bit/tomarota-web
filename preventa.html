@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preventa | Tomarota</title>
+<link rel="icon" href="icono.png">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f5f7;
+}
+
+/* -------- MENU (MISMO DEL index.html) -------- */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.menu a{
+    position:relative;
+    text-decoration:none;
+    color:#1f3553;
+    font-size:14px;
+    font-weight:600;
+    padding:6px 2px;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:2px;
+    background:#f57c2b;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+.menu a:hover{
+    color:#f57c2b;
+}
+
+.menu a.activo{
+    color:#f57c2b;
+}
+
+.menu a.activo::after{
+    width:100%;
+}
+
+.btn{
+    background:linear-gradient(135deg,#f57c2b,#ff9b54);
+    color:white !important;
+    padding:9px 16px;
+    border-radius:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 16px rgba(0,0,0,0.25);
+}
+
+/* ---------- LOGO ---------- */
+
+.logo{
+    position:relative;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:0.6px;
+    color:#1f3553;
+    cursor:pointer;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+    animation:logoEntrada 0.9s ease forwards;
+}
+
+.logo .o{
+    color:#f57c2b;
+}
+
+.logo::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:3px;
+    background:linear-gradient(90deg,#f57c2b,#ff9b54);
+    border-radius:4px;
+    transition:width 0.4s ease;
+}
+
+.logo::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:-4px;
+    width:22px;
+    height:2px;
+    background:#f57c2b;
+    opacity:0.6;
+}
+
+.logo:hover{
+    transform:translateY(-1px);
+}
+
+.logo:hover::after{
+    width:100%;
+}
+
+@keyframes logoEntrada{
+    from{opacity:0;transform:translateY(-8px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* -------- HERO PREVENTA -------- */
+
+.preventa-hero{
+    padding:80px 40px 80px;
+    text-align:center;
+    background:
+        linear-gradient(rgba(31,53,83,0.92),rgba(31,53,83,0.92));
+    color:white;
+}
+
+.preventa-hero span{
+    display:inline-block;
+    background:rgba(245,124,43,0.15);
+    color:#ffb37a;
+    padding:6px 16px;
+    border-radius:40px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.preventa-hero h1{
+    font-size:42px;
+    margin-bottom:16px;
+}
+
+.preventa-hero p{
+    max-width:700px;
+    margin:0 auto;
+    font-size:17px;
+    line-height:1.6;
+    opacity:0.9;
+}
+
+/* -------- CONTENIDO -------- */
+
+.preventa-contenido{
+    padding:90px 40px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.preventa-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:30px;
+}
+
+.preventa-card{
+    background:white;
+    padding:30px 25px;
+    border-radius:22px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.08);
+    transition:0.35s;
+    border:1px solid #eee;
+}
+
+.preventa-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(245,124,43,0.18);
+}
+
+.preventa-card h3{
+    color:#1f3553;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.preventa-card p{
+    font-size:14px;
+    color:#555;
+    line-height:1.6;
+}
+
+/* -------- BLOQUE DESTACADO -------- */
+
+.preventa-destacado{
+    margin-top:70px;
+    background:linear-gradient(135deg,#1f3553,#304f7d);
+    color:white;
+    border-radius:28px;
+    padding:45px 50px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+@media(max-width:900px){
+    .preventa-destacado{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+}
+
+.preventa-destacado h2{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.preventa-destacado p{
+    line-height:1.6;
+    opacity:0.9;
+}
+
+.lista-preventa{
+    display:grid;
+    gap:12px;
+    font-size:14px;
+}
+
+/* -------- BOTÓN FINAL -------- */
+
+.preventa-accion{
+    text-align:center;
+    margin-top:60px;
+}
+
+.preventa-accion a{
+    display:inline-block;
+    background:linear-gradient(135deg,#f57c2b,#ff9b54);
+    color:white;
+    text-decoration:none;
+    padding:16px 36px;
+    border-radius:35px;
+    font-weight:700;
+    box-shadow:0 12px 28px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.preventa-accion a:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 35px rgba(0,0,0,0.35);
+}
+
+/* -------- FOOTER -------- */
+
+footer{
+    background:#1f3553;
+    color:white;
+    padding:30px 20px;
+    text-align:center;
+    position:relative;
+}
+
+.footer-copy{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-size:14px;
+    opacity:0.9;
+    white-space:nowrap;
+}
+
+/* ===========================
+   RESPONSIVE – TABLET Y MÓVIL
+   =========================== */
+
+@media (max-width: 992px){
+
+    header{
+        padding:15px 20px;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        width:100%;
+    }
+
+    .hero{
+        height:auto;
+        padding:60px 0;
+        background-position:center;
+        background-size:cover;
+    }
+
+    .hero-contenido{
+        padding:0 25px;
+    }
+
+    .hero-texto h1{
+        font-size:30px;
+    }
+
+    .hero-texto p{
+        font-size:15px;
+    }
+
+    .lista-beneficios{
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+
+    .uso{
+        padding:70px 25px;
+    }
+
+    .uso img{
+        max-width:100%;
+        height:260px;
+    }
+
+}
+
+
+/* ===========================
+   MÓVILES
+   =========================== */
+
+@media (max-width: 600px){
+
+    .logo{
+        font-size:24px;
+    }
+
+    .menu a{
+        font-size:13px;
+    }
+
+    .btn{
+        padding:7px 14px;
+        font-size:13px;
+    }
+
+    .hero-texto{
+        max-width:100%;
+    }
+
+    .hero-texto h1{
+        font-size:26px;
+    }
+
+    .beneficios h2{
+        font-size:28px;
+    }
+
+    .beneficio{
+        padding:22px 18px;
+    }
+
+    .uso{
+        gap:30px;
+    }
+
+    .uso h2{
+        font-size:26px;
+    }
+
+    .uso p{
+        font-size:15px;
+    }
+
+    footer{
+        padding:35px 20px;
+        text-align:center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">
+        T<span class="o">o</span>mar<span class="o">o</span>ta
+    </a>
+
+    <div class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="caracteristicas.html">Características</a>
+        <a href="preventa.html" class="activo">Preventa</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="btn" href="comprar.html">¡Comprar ahora!</a>
+    </div>
+</header>
+
+<section class="preventa-hero">
+
+    <h1>Preventa exclusiva Tomarota</h1>
+
+    <p>
+        Sé parte del primer grupo en acceder al toma todo inteligente de
+        tres compartimientos diseñado para acompañarte en tus jornadas de
+        estudio y trabajo.
+    </p>
+
+</section>
+
+<section class="preventa-contenido">
+
+    <div class="preventa-grid">
+
+        <div class="preventa-card">
+    <h3>Tres bebidas en un solo envase</h3>
+    <p>
+        Permite transportar diferentes tipos de bebidas en secciones separadas,
+        conservando su sabor y evitando cualquier tipo de mezcla.
+    </p>
+</div>
+
+<div class="preventa-card">
+    <h3>Ideal para tu rutina diaria</h3>
+    <p>
+        Diseñado para acompañarte durante largas jornadas académicas o laborales,
+        garantizando practicidad y comodidad durante todo el día.
+    </p>
+</div>
+
+<div class="preventa-card">
+    <h3>Construcción segura y duradera</h3>
+    <p>
+        Elaborado con materiales de alta calidad, libres de componentes tóxicos y
+        preparados para un uso continuo y prolongado.
+    </p>
+</div>
+
+<div class="preventa-card">
+    <h3>Diseño optimizado con tecnología inteligente</h3>
+    <p>
+        Su estructura y funcionalidad fueron definidas a partir del análisis de
+        hábitos de consumo, ergonomía y tendencias mediante herramientas de
+        inteligencia artificial.
+    </p>
+</div>
+
+    </div>
+
+    <div class="preventa-destacado">
+
+        <div>
+            <h2>Reserva hoy tu Tomarota</h2>
+            <p>
+                La preventa te permite asegurar tu toma todo antes del
+                lanzamiento oficial y formar parte de la primera comunidad
+                de usuarios Tomarota.
+            </p>
+        </div>
+
+        <div class="lista-preventa">
+            <div>✔ Acceso prioritario al lanzamiento</div>
+            <div>✔ Stock limitado en la primera producción</div>
+            <div>✔ Atención preferente al cliente</div>
+            <div>✔ Comunidad exclusiva Tomarota</div>
+        </div>
+
+    </div>
+
+    <div class="preventa-accion">
+        <a href="contacto.html">
+            Quiero acceder a la preventa
+        </a>
+    </div>
+
+</section>
+
+<footer>
+    <span class="footer-copy">© 2026 – Tomarota | Innovación para tu día a día</span>
+</footer>
+
+</body>
+</html>
